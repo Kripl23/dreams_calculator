@@ -1,5 +1,7 @@
 # My own ignores
-
+.vscode
+launch.json
+.pylintrc
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
