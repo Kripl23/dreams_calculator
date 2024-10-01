@@ -13,19 +13,19 @@
 <body>
     <header>
         <nav>
-            <a href="{% url 'home' %}">Главная</a>
+            <a href="{% url 'home' %}">Home</a>
             {% if user.is_authenticated %}
-            Привет, {{ user.username }}!
+            Hello, {{ user.username }}!
             <form action="{% url 'logout' %}" method="post" style="display: inline;">
                 {% csrf_token %}
                 <button type="submit"
                     style="background: none; border: none; padding: 0; cursor: pointer; color: #007bff; text-decoration: underline;">
-                    Выход
+                    Logout
                 </button>
             </form>
             {% else %}
-            <a href="{% url 'login' %}">Вход</a>
-            <a href="{% url 'register' %}">Регистрация</a>
+            <button><a href="{% url 'login' %}">Login</a></button>
+            <button><a href="{% url 'register' %}">Registraition</a></button>
             {% endif %}
         </nav>
     </header>

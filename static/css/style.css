@@ -1,0 +1,29 @@
+:root {
+    background-color: #212121;
+    color: white;
+
+}
+
+h1 {
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+h1 span {
+    margin-left: 10px;
+    color: #01f038;
+}
+
+header{
+    position: sticky;
+    background-color: #18181b;
+    margin-top: -9px;
+    margin-left: -9px;
+    margin-right: -8px;
+    padding-bottom: 30px;
+}
+
+nav{
+    display: flex;
+}
