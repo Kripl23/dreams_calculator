@@ -11,17 +11,12 @@ h1 {
 }
 
 h1 span {
-    margin-left: 10px;
-    color: #01f038;
+    color: #16a34a;
 }
 
 header{
     position: sticky;
     background-color: #18181b;
-    margin-top: -9px;
-    margin-left: -9px;
-    margin-right: -8px;
-    padding-bottom: 30px;
 }
 
 nav{

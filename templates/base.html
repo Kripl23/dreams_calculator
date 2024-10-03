@@ -8,28 +8,39 @@
     <meta charset="UTF-8">
     <title>Dreams Calculator</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                clifford: "#16a34a",
+              }
+            }
+          }
+        }
+      </script>
 </head>
 
 <body>
     <header>
-        <nav>
-            <a href="{% url 'home' %}">Home</a>
-            {% if user.is_authenticated %}
-            Hello, {{ user.username }}!
-            <form action="{% url 'logout' %}" method="post" style="display: inline;">
-                {% csrf_token %}
-                <button type="submit"
-                    style="background: none; border: none; padding: 0; cursor: pointer; color: #007bff; text-decoration: underline;">
-                    Logout
-                </button>
-            </form>
-            {% else %}
-            <button><a href="{% url 'login' %}">Login</a></button>
-            <button><a href="{% url 'register' %}">Registraition</a></button>
-            {% endif %}
+        <nav class="flex items-center justify-between flex-wrap bg-green-600 p-6">
+            <div class="navbar-start">
+                <a href="{% url 'home' %}" class="navbar-item">Home</a>
+                {% if user.is_authenticated %}
+                <a class="navbar-item">Hello, {{ user.username }}!</a> 
+                <form action="{% url 'logout' %}" method="post" style="display: inline;" id="logout-form">
+                    {% csrf_token %}
+                </form>
+                <a href="javascript:void(0);" class="navbar-item" onclick="document.getElementById('logout-form').submit();">logout</a>
+                {% else %}
+                <a href="{% url 'login' %}" class="navbar-item">Login</a>
+                <a href="{% url 'register' %}" class="navbar-item">Registraition</a>
+                {% endif %}
+            </div>
         </nav>
     </header>
-    <main>
+    <main class="content">
         {% if messages %}
         <ul>
             {% for message in messages %}
