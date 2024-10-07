@@ -3,6 +3,44 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1 class="title is-1 mt-2" style="color:white">Welcome to<span class="ml-2">Dreams Calculator</span></h1>
-<p>Track your finances and save for your dreams!</p>
+<div class="relative overflow-hidden min-h-screen pt-10">
+  <div class="relative z-20 max-w-4xl mx-auto px-6 py-16 text-center bg-green-800">
+    <h1 class="text-5xl font-extrabold text-green-100 mb-6">Welcome to Dreams Calculator</h1>
+    <p class="text-xl text-green-50 mb-10">Track your finances and save for your dreams!</p>
+    <div class="flex justify-center space-x-4 mb-16">
+      <a href="#" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full transition">Get Started</a>
+      <a href="#" class="bg-transparent border-2 border-green-600 hover:bg-green-600 hover:text-white text-green-50 font-bold py-3 px-6 rounded-full transition">Learn More</a>
+    </div>
+  </div>
+  <div class="max-w-5xl mx-auto px-6 py-8 bg-green-700">
+    <h2 class="text-3xl font-bold text-green-100 mb-8">Key Features</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-green-900 p-6 rounded-lg shadow-lg text-center">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-12 w-12 text-green-400 mb-4 mx-auto">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4H8l4-8v6h3l-4 8z" />
+        </svg>
+        <h3 class="text-xl font-semibold text-green-50 mb-2">Track Spending</h3>
+        <p class="text-green-50">Monitor your expenses and stay in control of your financial health.</p>
+      </div>
+      <div class="bg-green-900 p-6 rounded-lg shadow-lg text-center">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-12 w-12 text-green-400 mb-4 mx-auto">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3-1.343 3-3S13.657 2 12 2 9 3.343 9 5s1.343 3 3 3zM19 13v7h-1a2 2 0 01-2-2v-5a2 2 0 012-2h1zM6 13v7H5a2 2 0 01-2-2v-5a2 2 0 012-2h1z" />
+        </svg>
+        <h3 class="text-xl font-semibold text-green-50 mb-2">Set Goals</h3>
+        <p class="text-green-50">Define your financial goals and track your progress effortlessly.</p>
+      </div>
+      <div class="bg-green-900 p-6 rounded-lg shadow-lg text-center">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-12 w-12 text-green-400 mb-4 mx-auto">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h3m4 0h3m4 0h3M3 14h3m4 0h3m4 0h3M4 6h16M4 18h16" />
+        </svg>
+        <h3 class="text-xl font-semibold text-green-50 mb-2">Analyze Data</h3>
+        <p class="text-green-50">Get detailed insights and analytics to understand your spending habits.</p>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-4xl mx-auto px-6 py-16 text-center bg-green-800">
+    <h2 class="text-3xl font-bold text-green-100 mb-6">What Our Users Say</h2>
+    <blockquote class="text-xl italic text-green-50">"Dreams Calculator has changed the way I save and manage my finances. Highly recommend!"</blockquote>
+  </div>
+</div>
 {% endblock %}
