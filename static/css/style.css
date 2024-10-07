@@ -1,0 +1,24 @@
+:root {
+    background-color: #212121;
+    color: white;
+
+}
+
+h1 {
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+h1 span {
+    color: #16a34a;
+}
+
+header{
+    position: sticky;
+    background-color: #18181b;
+}
+
+nav{
+    display: flex;
+}
