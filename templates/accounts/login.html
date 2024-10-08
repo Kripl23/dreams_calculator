@@ -3,11 +3,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Вход</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Войти</button>
-    <input type="hidden" name="next" value="{{ next }}">
-</form>
+<div class="flex items-center justify-center min-h-screen -mt-96 pb-0 bg-green-800">
+  <div class="bg-green-900 p-10 rounded-lg shadow-md max-w-md w-full">
+    <h2 class="text-3xl font-bold text-green-100 text-center mb-6">Login</h2>
+    <form method="post" class="space-y-6">
+      {% csrf_token %}
+      <div class="mb-4">
+        {{ form.username.label_tag }}
+        {{ form.username }}
+      </div>
+      <div class="mb-4">
+        {{ form.password.label_tag }}
+        {{ form.password }}
+      </div>
+      <div class="flex justify-center">
+        <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-full transition duration-300">Log In</button>
+      </div>
+      <input type="hidden" name="next" value="{{ next }}">
+    </form>
+  </div>
+</div>
 {% endblock %}
