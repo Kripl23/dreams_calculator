@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="ru" style="--100vh: 911px; color-scheme: dark;" class="antialiased [--scrollbar-size:theme(width.4)] motion-safe:scroll-smooth dark">
+<html lang="ru" style="--100vh: 911px; color-scheme: dark;"
+  class="antialiased [--scrollbar-size:theme(width.4)] motion-safe:scroll-smooth dark">
 
 <head>
   <meta charset="UTF-8">
   <title>Dreams Calculator</title>
   <meta name="viewport" content="width=device-width">
   <meta content="summary_large_image" name="twitter:card">
-  <link rel="stylesheet" href="https://pepeland.net/_next/static/css/aec662b8dabb7832.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/3.4.7/tailwind.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -26,45 +29,55 @@
 <body class="bg-black text-zinc-900 selection:bg-green-700/50 selection:text-white dark:bg-black dark:text-white">
   <div id="__next">
     <div class="grid min-h-screen grid-rows-[1fr_auto]">
-      <header class="fixed z-50 grid h-18 w-full select-none items-center border-b transition bg-black dark:bg-black supports-backdrop-blur:backdrop-blur supports-backdrop-blur:bg-black/75 backdrop-saturate-150 border-zinc-100/50 dark:border-zinc-800/50">
-        <div class="container px-6 mx-auto grid grid-cols-[1fr_auto_1fr] items-center gap-6">
-          <div class="lg:hidden">
-            <button class="grid h-10 w-10 place-items-center rounded-full transition -ml-3 hover:bg-zinc-200/25 dark:hover:bg-zinc-600/20" onclick="toggleNavbar()" aria-label="Открыть меню сайта">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-menu-2 h-6 w-6">
+      <header
+        class="fixed z-50 flex h-20 w-full items-center border-b transition bg-black dark:bg-black supports-backdrop-blur:backdrop-blur supports-backdrop-blur:bg-black/75 backdrop-saturate-150 border-zinc-100/50 dark:border-zinc-800/50">
+        <div class="container px-6 mx-auto flex items-center justify-between">
+          <div class="flex items-center">
+            <button
+              class="lg:hidden h-10 w-10 flex items-center justify-center rounded-full transition hover:bg-zinc-200/25 dark:hover:bg-zinc-600/20"
+              onclick="toggleNavbar()" aria-label="Открыть меню сайта">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="tabler-icon tabler-icon-menu-2 h-6 w-6">
                 <path d="M4 6l16 0"></path>
                 <path d="M4 12l16 0"></path>
                 <path d="M4 18l16 0"></path>
               </svg>
             </button>
-          </div>
-          <div class="grid grid-flow-col items-center justify-start gap-3">
-            <a class="block transition text-green font-semibold text-xl tracking-tight hover:opacity-90 active:scale-90" aria-label="На главную страницу" href="{% url 'home' %}">
+            <a class="ml-4 text-green font-semibold text-2xl tracking-tight hover:opacity-90 active:scale-90"
+              aria-label="На главную страницу" href="{% url 'home' %}">
               Dreams Calculator
             </a>
           </div>
-          <nav class="hidden grid-flow-col place-items-center gap-3.5 lg:grid lg:text-sm xl:text-base">
-            <a href="{% url 'home' %}" class="relative grid rounded-full transition hover:bg-green/25 dark:hover:bg-green/25 -my-2 px-4 py-2 font-[550] {% if request.resolver_match.url_name == 'home' %}text-green{% else %}text-white{% endif %}">Home</a>
+          <nav class="hidden lg:flex space-x-6">
+            <a href="{% url 'home' %}"
+              class="text-white transition hover:text-green {% if request.resolver_match.url_name == 'home' %}text-green{% endif %}">Home</a>
             {% if user.is_authenticated %}
-            <span class="relative grid rounded-full transition hover:bg-green/25 dark:hover:bg-green/25 -my-2 px-4 py-2 font-medium text-white">Hello, {{ user.username }}!</span>
-            <a href="{% url 'login' %}" class="relative grid rounded-full transition hover:bg-green/25 dark:hover:bg-green/25 -my-2 px-4 py-2 font-medium {% if request.resolver_match.url_name == 'accounts' %}text-green{% else %}text-white{% endif %}">Мои счета</a>
-            <a href="javascript:void(0);" onclick="document.getElementById('logout-form').submit();" class="relative grid rounded-full transition hover:bg-green/25 dark:hover:bg-green/25 -my-2 px-4 py-2 font-medium text-white">Logout</a>
+            <a href="#"
+              class="text-white transition hover:text-green {% if request.resolver_match.url_name == 'accounts' %}text-green{% endif %}">Мои
+              счета</a>
+            <a href="javascript:void(0);" onclick="document.getElementById('logout-form').submit();"
+              class="text-white transition hover:text-green">Logout</a>
             <form action="{% url 'logout' %}" method="post" style="display: none;" id="logout-form">
               {% csrf_token %}
             </form>
             {% else %}
-            <a href="{% url 'login' %}" class="relative grid rounded-full transition hover:bg-green/25 dark:hover:bg-green/25 -my-2 px-4 py-2 font-medium text-white">Login</a>
-            <a href="{% url 'register' %}" class="relative grid rounded-full transition hover:bg-green/25 dark:hover:bg-green/25 -my-2 px-4 py-2 font-medium text-white">Register</a>
+            <a href="{% url 'login' %}"
+              class="text-white transition hover:text-green {% if request.resolver_match.url_name == 'login' %}text-green{% endif %}">Login</a>
+            <a href="{% url 'register' %}"
+              class="text-white transition hover:text-green {% if request.resolver_match.url_name == 'register' %}text-green{% endif %}">Register</a>
             {% endif %}
           </nav>
         </div>
       </header>
-      <main class="relative overflow-hidden bg-gradient-to-b from-green-700/50 to-green-700/75 px-6 py-24 pt-32 dark:from-black dark:via-black dark:to-green-950/50 lg:pb-40 lg:pt-56">
+      <main
+        class="relative overflow-hidden bg-gradient-to-b from-green-700/50 to-green-700/75 px-8 py-28 pt-32 dark:from-black dark:via-black dark:to-green-950/50 lg:pb-44 lg:pt-56">
         <div class="container mx-auto">
           {% if messages %}
           <ul>
             {% for message in messages %}
             <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
-            {% endfor %}
+              {% endfor %}
           </ul>
           {% endif %}
           {% block content %}{% endblock %}
@@ -78,6 +91,13 @@
       navbar.classList.toggle('hidden');
     }
   </script>
+
+  <style>
+    ::selection {
+      background-color: #16a34c;
+      color: #ffffff;
+    }
+  </style>
 </body>
 
 </html>
