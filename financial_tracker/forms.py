@@ -2,7 +2,7 @@ from django import forms
 from .models import Account, Contribution
 
 
-class AccountForms(forms.ModelForm):
+class AccountForm(forms.ModelForm):
     class Meta:
         model = Account
         fields = ['name', 'description', 'goal']

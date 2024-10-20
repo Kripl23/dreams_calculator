@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Мои счета накоплений</h2>
+<a href="{% url 'add_account' %}">Добавить новый счет</a>
+<ul>
+    {% for account in accounts %}
+        <li>
+            <a href="{% url 'account_detail' account.pk %}">{{ account.name }}</a> - {{ account.balance }}₽ / {{ account.goal }}₽
+            {% if account.goal_reached %}
+                <strong>Цель достигнута!</strong>
+            {% endif %}
+        </li>
+    {% empty %}
+        <li>У вас нет счетов.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{{ account.name }}</h2>
+<p>{{ account.description }}</p>
+<p>Баланс: {{ account.balance }}₽ / {{ account.goal }}₽</p>
+{% if account.goal_reached %}
+    <p><strong>Поздравляем! Цель достигнута!</strong></p>
+{% endif %}
+
+<h3>Добавить взнос</h3>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Добавить взнос</button>
+</form>
+
+<h3>История взносов</h3>
+<ul>
+    {% for contribution in contributions %}
+        <li>{{ contribution.date }}: {{ contribution.amount }}₽</li>
+    {% empty %}
+        <li>Нет взносов.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

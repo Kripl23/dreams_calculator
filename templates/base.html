@@ -53,7 +53,7 @@
             <a href="{% url 'home' %}"
               class="text-white transition hover:text-green {% if request.resolver_match.url_name == 'home' %}text-green{% endif %}">Home</a>
             {% if user.is_authenticated %}
-            <a href="#"
+            <a href="{% url 'account_list' %}"
               class="text-white transition hover:text-green {% if request.resolver_match.url_name == 'accounts' %}text-green{% endif %}">My dreams</a>
             <a href="javascript:void(0);" onclick="document.getElementById('logout-form').submit();"
               class="text-white transition hover:text-green">Logout</a>
