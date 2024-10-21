@@ -10,6 +10,7 @@ class Account(models.Model):
     goal = models.DecimalField(max_digits=12, decimal_places=2)
     balance = models.DecimalField(max_digits=12, decimal_places=2, default=0)
     goal_reached = models.BooleanField(default=False)
+    # TODO create multiple curencies
 
     def __str__(self):  # pylint: disable=E0307
         return self.name

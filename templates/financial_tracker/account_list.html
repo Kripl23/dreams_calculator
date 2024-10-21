@@ -1,18 +1,28 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Мои счета накоплений</h2>
-<a href="{% url 'add_account' %}">Добавить новый счет</a>
-<ul>
-    {% for account in accounts %}
-        <li>
-            <a href="{% url 'account_detail' account.pk %}">{{ account.name }}</a> - {{ account.balance }}₽ / {{ account.goal }}₽
-            {% if account.goal_reached %}
-                <strong>Цель достигнута!</strong>
-            {% endif %}
-        </li>
-    {% empty %}
-        <li>У вас нет счетов.</li>
-    {% endfor %}
-</ul>
+<div class="container mx-auto px-6 py-16">
+    <h2 class="text-4xl font-bold text-green-500 mb-8 text-center">My Savings Goals</h2>
+    <div class="flex justify-center mb-10">
+        <a href="{% url 'add_account' %}" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full transition">Add New Goal</a>
+    </div>
+    <div class="grid grid-cols-1 gap-8">
+        {% for account in accounts %}
+            <div class="bg-green-700 p-6 rounded-lg shadow-2xl">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-2xl font-semibold text-green-300">{{ account.name }}</h3>
+                    {% if account.goal_reached %}
+                        <span class="bg-green-500 text-white px-4 py-1 rounded-full">Goal Reached!</span>
+                    {% endif %}
+                </div>
+                <p class="text-green-300 mt-4">Balance: {{ account.balance }} / Goal: {{ account.goal }}</p>
+                <div class="flex justify-end mt-6">
+                    <a href="{% url 'account_detail' account.pk %}" class="text-green-300 hover:text-green-400 transition">Details</a>
+                </div>
+            </div>
+        {% empty %}
+            <p class="text-green-300">You have no goals.</p>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
