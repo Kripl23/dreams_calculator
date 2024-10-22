@@ -16,8 +16,8 @@
                     {% endif %}
                 </div>
                 <p class="text-green-300 mt-4">Balance: {{ account.balance }} / Goal: {{ account.goal }}</p>
-                <div id="progress-{{ forloop.counter }}" class="myProgress mt-4">
-                    <div class="myBar"></div>
+                <div id="progress-{{ forloop.counter }}" class="myProgress mt-4 rounded-full">
+                    <div class="myBar rounded-full"></div>
                 </div>
                 <script>
                     document.addEventListener('DOMContentLoaded', function() {
