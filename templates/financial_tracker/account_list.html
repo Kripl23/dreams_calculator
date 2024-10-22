@@ -16,6 +16,33 @@
                     {% endif %}
                 </div>
                 <p class="text-green-300 mt-4">Balance: {{ account.balance }} / Goal: {{ account.goal }}</p>
+                <div id="progress-{{ forloop.counter }}" class="myProgress mt-4">
+                    <div class="myBar"></div>
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        var balance = {{ account.balance }};
+                        var goal = {{ account.goal }};
+                        var progress = Math.round((balance / goal) * 100);
+                        var progressBar = document.querySelector('#progress-{{ forloop.counter }} .myBar');
+                        progressBar.style.width = progress + '%';
+                        progressBar.textContent = progress + '%';
+                    });
+                </script>
+                <style>
+                    #progress-{{ forloop.counter }} {
+                      width: 100%;
+                      background-color: #001603;  
+                    }
+                    
+                    #progress-{{ forloop.counter }} .myBar {
+                      height: 30px;
+                      background-color: #169547;
+                      text-align: center;
+                      line-height: 30px;
+                      color: rgb(255, 255, 255);
+                    }
+                </style>
                 <div class="flex justify-end mt-6">
                     <a href="{% url 'account_detail' account.pk %}" class="text-green-300 hover:text-green-400 transition">Details</a>
                 </div>
