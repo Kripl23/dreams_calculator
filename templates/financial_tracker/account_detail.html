@@ -3,24 +3,24 @@
 {% block content %}
 <h2>{{ account.name }}</h2>
 <p>{{ account.description }}</p>
-<p>Баланс: {{ account.balance }}₽ / {{ account.goal }}₽</p>
+<p>Balance: {{ account.balance }} / {{ account.goal }}</p>
 {% if account.goal_reached %}
-    <p><strong>Поздравляем! Цель достигнута!</strong></p>
+    <p><strong>Congrats! You granted your dream!</strong></p>
 {% endif %}
 
-<h3>Добавить взнос</h3>
+<h3>Add contribution</h3>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Добавить взнос</button>
+    <button type="submit">Add</button>
 </form>
 
-<h3>История взносов</h3>
+<h3>Contribution history</h3>
 <ul>
     {% for contribution in contributions %}
-        <li>{{ contribution.date }}: {{ contribution.amount }}₽</li>
+        <li>{{ contribution.date }}: {{ contribution.amount }}</li>
     {% empty %}
-        <li>Нет взносов.</li>
+        <li>No contributions</li>
     {% endfor %}
 </ul>
 {% endblock %}
