@@ -1,10 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Create new dream</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Create</button>
-</form>
+<div class="container mx-auto px-6 py-16">
+    <h2 class="text-4xl font-bold text-green-500 mb-8 text-center">Create New Dream</h2>
+    <div class="flex justify-center mb-10">
+        <a href="{% url 'account_list' %}" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full transition">Back to Goals</a>
+    </div>
+    <div class="bg-green-700 p-6 rounded-lg shadow-2xl max-w-lg mx-auto">
+        <form method="post" class="space-y-6">
+            {% csrf_token %}
+            <div class="mb-4">
+                <label for="id_name" class="block text-green-300 font-semibold">Name:</label>
+                {{ form.name }}
+            </div>
+            <div class="mb-4">
+                <label for="id_description" class="block text-green-300 font-semibold">Description:</label>
+                {{ form.description }}
+            </div>
+            <div class="mb-4">
+                <label for="id_goal" class="block text-green-300 font-semibold">Goal:</label>
+                {{ form.goal }}
+            </div>
+            <div class="flex justify-center">
+                <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-full transition duration-300">Create</button>
+            </div>
+        </form>
+    </div>
+</div>
 {% endblock %}
