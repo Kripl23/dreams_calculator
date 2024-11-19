@@ -6,9 +6,21 @@
 <section class="bg-black text-green-400 py-20">
   <div class="container mx-auto px-6">
     <div class="text-center max-w-2xl mx-auto">
-      <h1 class="text-6xl font-bold mb-8">Welcome to <div style="color: #169547;">Dreams Calculator</div></h1>
-      <p class="text-lg mb-8">Your personal finance tracker designed to help you achieve your dreams. Manage your finances with ease and stay in control.</p>
-      <a href="#" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-8 rounded-full inline-block transition duration-300 border-2 border-green-600">Get Started</a>
+      <h1 class="text-6xl font-bold mb-8">Welcome to <div style="color:
+          #169547;">Dreams Calculator</div></h1>
+      <p class="text-lg mb-8">Your personal finance tracker designed to help you
+        achieve your dreams. Manage your finances with ease and stay in control.</p>
+      {% if user.is_authenticated %}
+      <a href="{% url 'login' %}"
+        class="bg-green-600 hover:bg-green-700 text-white font-semibold py-4
+        px-8 rounded-full inline-block transition duration-300 border-2
+        border-green-600">Get Started</a>
+      {% else %}
+      <a href="{% url 'account_list' %}"
+        class="bg-green-600 hover:bg-green-700 text-white font-semibold py-4
+        px-8 rounded-full inline-block transition duration-300 border-2
+        border-green-600">My dreams</a>
+      {% endif %}
     </div>
   </div>
 </section>
@@ -19,17 +31,20 @@
       <div class="p-10 bg-green-900 rounded-lg shadow-lg text-center">
         <ion-icon name="flash-outline" style="font-size: 64px; color:#169547;"></ion-icon>
         <h3 class="text-2xl font-semibold mb-4">Track Spending</h3>
-        <p>Stay on top of your expenses and make smarter financial decisions with our easy-to-use tracking tools.</p>
+        <p>Stay on top of your expenses and make smarter financial decisions
+          with our easy-to-use tracking tools.</p>
       </div>
       <div class="p-10 bg-green-900 rounded-lg shadow-lg text-center">
         <ion-icon name="golf-outline" style="font-size: 64px; color:#169547;"></ion-icon>
         <h3 class="text-2xl font-semibold mb-4">Set Financial Goals</h3>
-        <p>Define your financial targets and track your progress effortlessly to achieve your dreams faster.</p>
+        <p>Define your financial targets and track your progress effortlessly to
+          achieve your dreams faster.</p>
       </div>
       <div class="p-10 bg-green-900 rounded-lg shadow-lg text-center">
         <ion-icon name="cash-outline" style="font-size: 64px; color: #169547;"></ion-icon>
         <h3 class="text-2xl font-semibold mb-4">Analyze Your Data</h3>
-        <p>Get valuable insights on your spending habits and see where your money goes with our analytics tools.</p>
+        <p>Get valuable insights on your spending habits and see where your
+          money goes with our analytics tools.</p>
       </div>
     </div>
   </div>
