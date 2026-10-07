@@ -9,9 +9,32 @@
 {% endif %}
 
 <h3>Add contribution</h3>
-<form method="post">
+<form method="post" action="{% url 'account_detail' account.pk %}">
     {% csrf_token %}
     {{ form.as_p }}
+    <button type="submit">Add</button>
+</form>
+
+<h3>Monthly events</h3>
+<ul>
+    {% for event in events %}
+        <li>
+            {{ event.amount }} monthly since {{ event.date }}
+            (passed: {{ event.applied_count }}, next: {{ event.next_date }})
+            <form method="post" action="{% url 'delete_event' event.pk %}" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+    {% empty %}
+        <li>No events</li>
+    {% endfor %}
+</ul>
+
+<h3>Add event</h3>
+<form method="post" action="{% url 'add_event' account.pk %}">
+    {% csrf_token %}
+    {{ event_form.as_p }}
     <button type="submit">Add</button>
 </form>
 
